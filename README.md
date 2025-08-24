@@ -58,7 +58,7 @@ h(x) = ||p_robot - p_obstacle||² - radius²
 - **Goal checking**: Stop robots upon target arrival
 - **Emergency stop**: Velocity reduction for critical proximity
 
-## 📊 Implementation Details
+## Implementation Details
 
 ### Dubin's Car Model
 **State vector**: `[x, y, θ]` (position and heading)
@@ -77,7 +77,7 @@ Where:
 - **CBF gains**: κ = 1-10
 - **Simulation timestep**: 0.1 s
 
-## 🧪 Simulation Scenarios
+## Simulation Scenarios
 
 ### 1. **Single Robot Navigation** (`velocity_control.m`)
 - Basic point-to-point navigation
@@ -98,7 +98,7 @@ Where:
 - **Priority Only** (`three_robots_crisscross_priority.m`): Multi-agent coordination
 - **Full System** (`three_robots_crisscross_priority_obstacle.m`): Complete scenario
 
-## 🎛️ Tunable Parameters
+## Tunable Parameters
 
 ### Control Gains
 - `kappa`: Proportional gain for nominal controller (1-30)
@@ -118,71 +118,8 @@ Where:
 - **Larger safe_distance**: More conservative but may cause oscillations
 - **Priority weights**: Adjust based on scenario requirements
 
-## 🎨 Visualization Features
-
-- **Real-time animation**: Robot trajectories with safety bubbles
-- **Color coding**: Different colors/line styles for each robot
-- **Start/goal markers**: Clear visual indicators
-- **Obstacle representation**: Circular boundaries
-- **Safety zones**: Dotted circles showing safe distances
-
-## 🚀 Getting Started
-
-### Prerequisites
-- MATLAB R2019b or later
-- Optimization Toolbox (for `quadprog`)
-
-### Running Simulations
-1. Open any `.m` file in MATLAB
-2. Run the script to see animated simulation
-3. Adjust parameters at the top of each file for different behaviors
-4. View results in generated plots and command window output
-
-### Example Usage
-```matlab
-% Run basic two-robot simulation
-two_robots_crisscross_withPriority
-
-% Modify parameters for different behavior
-safe_distance = 3.0;  % Increase safety margin
-kappa = 15;           % More aggressive goal pursuit
-```
-
-## 📈 Results and Analysis
-
-The project demonstrates successful implementation of:
-- ✅ Collision-free navigation in all scenarios  
-- ✅ Dynamic priority resolution for multi-robot conflicts
-- ✅ Robust obstacle avoidance using HOCBFs
-- ✅ Real-time feasible control via QP optimization
-- ✅ Scalable architecture from 1 to 3+ robots
-
-Key findings:
-- **Priority systems** effectively resolve robot conflicts
-- **HOCBF formulation** handles relative degree 2 constraints
-- **QP approach** provides optimal control within safety bounds
-- **Parameter tuning** critical for smooth operation
-
-## 🔧 Technical Contributions
-
-### Novel Implementations
-1. **Dynamic Priority System**: Distance-based real-time priority assignment
-2. **Unified QP Framework**: Simultaneous handling of multiple constraint types
-3. **Robust Safety Architecture**: CBF/HOCBF integration with fallback mechanisms
-4. **Scalable Design**: Modular approach supporting arbitrary robot numbers
-
-### Mathematical Foundations
-- **Control Theory**: CBF/HOCBF safety-critical control
-- **Optimization**: Quadratic programming for multi-objective control
-- **Robotics**: Dubin's car nonholonomic constraints
-- **Multi-agent Systems**: Priority-based coordination strategies
-
-## 📚 References
+## References
 
 - **Control Barrier Functions**: Ames et al., "Control Barrier Function Based Quadratic Programs for Safety Critical Systems"
 - **Dubin's Car Model**: Dubins, L.E., "On Curves of Minimal Length with a Constraint on Average Curvature"
 - **Multi-Robot Coordination**: LaValle, S.M., "Planning Algorithms"
-
----
-
-*This project was developed for ECPS 208: Control Systems for Cyber Physical Systems, Spring 2025*
